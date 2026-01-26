@@ -1,0 +1,89 @@
+
+.calc{
+  width: fit-content;
+  border-radius: 10px;
+}
+.calc-buttons{
+  display: grid;
+  grid-template-columns: 60px 60px 60px 60px;
+  column-gap: 10px;
+  row-gap: 16px;
+}
+
+.calc-buttons button{
+  height: 45px;
+  width: 60px;
+  border-radius: 10px;
+  font-size: 26px;
+  border: 0;
+}
+
+.calc-buttons button:hover, .clear:hover{
+  background-color: yellow;
+}
+
+.js-expression{
+  font-size: 48px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 260px;
+  padding: 5px;
+}
+
+.js-add-expense{
+  font-size: 20px;
+  margin-left: 10px;
+  border-radius: 10px;
+  width: 75px;
+  height: 35px;
+  border: 0;
+}
+
+.js-expense-label{
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 260px;
+  padding: 5px;
+
+  display: inline-block;
+}
+
+.clear{
+  font-size: 17px;
+  border-radius: 10px;
+  width: 75px;
+  height: 45px;
+  margin-top: 16px;
+  margin-right: 10px;
+  border: 0;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+}
+body{
+  background-color: rgb(76, 111, 100);
+  color: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px 15px;
+}
+.expense-manager{
+  display: flex;
+  column-gap: 50px;
+  align-items: first baseline;
+}
+.expense-list{
+  border: none;
+
+  font-size: 34px;
+  font-family: 'Courier New', Courier, monospace;
+}
