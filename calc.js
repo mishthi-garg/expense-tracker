@@ -4,6 +4,7 @@ let calculation = JSON.parse(localStorage.getItem('calculation')) || '0';
     document.querySelector('.js-expression').value = calculation;
 
 let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+let total = JSON.parse(localStorage.getItem('total')) || 0;
 loadExpenses();
 
 document.querySelector('.js-expression').addEventListener('input', function(e) {
@@ -18,10 +19,16 @@ function loadExpenses() {
     for(let i=expenses.length-1; i>=0; i--){
         document.querySelector('.expense-list').innerHTML += `<p><span class="expense-label">${expenses[i].label}:</span> Rs. ${expenses[i].amount}</p><button class="js-delete-expense" onclick="deleteExpense(${i})">Delete</button>`;
       }
+    document.querySelector('.js-total').innerHTML = `Total: Rs. ${total}`;
     }
 
     function handleKeyDownCalc(event){
       if(event.key === 'Enter'){
+
+        if(justEvaluated){
+          addExpense();
+          return;
+        }
         updateCalculation('=');
       }
     }
@@ -33,8 +40,12 @@ function loadExpenses() {
     }
 
     function deleteExpense(index) {
+
+      total-= expenses[index].amount;
       expenses.splice(index, 1);
+       
       localStorage.setItem('expenses', JSON.stringify(expenses));
+      localStorage.setItem('total', JSON.stringify(total));
       loadExpenses();
     }
 
@@ -51,7 +62,9 @@ function loadExpenses() {
         return;
       }
       expenses.push(entry);
+      total += amount;
       localStorage.setItem('expenses', JSON.stringify(expenses));
+      localStorage.setItem('total', JSON.stringify(total));
       loadExpenses();
       labelInput.value = '';
       updateCalculation('C');
