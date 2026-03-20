@@ -2,6 +2,9 @@
 .calc{
   width: fit-content;
   border-radius: 10px;
+  display: inline-block;
+  position: sticky;
+  top: 0;
 }
 .calc-buttons{
   display: grid;
@@ -18,7 +21,7 @@
   border: 0;
 }
 
-.calc-buttons button:hover, .clear:hover{
+.calc-buttons button:hover, .clear:hover, .js-add-expense:hover, .js-delete-expense:hover{
   background-color: yellow;
 }
 
@@ -31,6 +34,9 @@
   border-radius: 10px;
   width: 260px;
   padding: 5px;
+  display: block;
+  background-color: transparent;
+  color: white;
 }
 
 .js-add-expense{
@@ -71,7 +77,7 @@
   font-style: italic;
 }
 body{
-  background-color: rgb(76, 111, 100);
+  background-color: rgb(0, 0, 0);
   color: whitesmoke;
   font-family: Arial, Helvetica, sans-serif;
   padding: 0px 15px;
@@ -83,7 +89,21 @@ body{
 }
 .expense-list{
   border: none;
-
+  display: flex; 
+  flex-direction: column;
+  row-gap: 10px;
   font-size: 34px;
   font-family: 'Courier New', Courier, monospace;
+}
+
+.expense-list p{
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 230, 198, 0.4);
+  padding-top: 10px;
+  padding-bottom: 2px;
+  padding-right: 10px;
+}
+.expense-label{
+  font-weight: bold;
+  color: rgb(255, 230, 198);
 }

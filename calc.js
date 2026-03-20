@@ -1,13 +1,42 @@
 let calculation = JSON.parse(localStorage.getItem('calculation')) || '0';
     let justEvaluated = true;
     let lastIsOperator = false;
-    console.log(calculation);
-    document.querySelector('.js-expression').innerHTML = `${calculation}`;
+    document.querySelector('.js-expression').value = calculation;
 
-    let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-    for(let i=0; i<expenses.length; i++){
-        document.querySelector('.expense-list').innerHTML += `<p>${expenses[i].label}: Rs. ${expenses[i].amount}</p>`;
+let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+loadExpenses();
+
+document.querySelector('.js-expression').addEventListener('input', function(e) {
+  calculation = e.target.value;
+  localStorage.setItem('calculation', JSON.stringify(calculation));
+  justEvaluated = false;
+  lastIsOperator = false;
+});
+
+function loadExpenses() {
+    document.querySelector('.expense-list').innerHTML = '';
+    for(let i=expenses.length-1; i>=0; i--){
+        document.querySelector('.expense-list').innerHTML += `<p><span class="expense-label">${expenses[i].label}:</span> Rs. ${expenses[i].amount}</p><button class="js-delete-expense" onclick="deleteExpense(${i})">Delete</button>`;
       }
+    }
+
+    function handleKeyDownCalc(event){
+      if(event.key === 'Enter'){
+        updateCalculation('=');
+      }
+    }
+
+    function handleKeyDownLabel(event){
+      if(event.key === 'Enter'){
+        addExpense();
+      }
+    }
+
+    function deleteExpense(index) {
+      expenses.splice(index, 1);
+      localStorage.setItem('expenses', JSON.stringify(expenses));
+      loadExpenses();
+    }
 
     function addExpense() {
       const labelInput = document.querySelector('.js-expense-label');
@@ -23,11 +52,7 @@ let calculation = JSON.parse(localStorage.getItem('calculation')) || '0';
       }
       expenses.push(entry);
       localStorage.setItem('expenses', JSON.stringify(expenses));
-      const expenseList = document.querySelector('.expense-list');
-      expenseList.innerHTML = '<p> Expense List</p>';
-      for(let i=0; i<expenses.length; i++){
-        expenseList.innerHTML += `<p>${expenses[i].label}: Rs. ${expenses[i].amount}</p>`;
-      }
+      loadExpenses();
       labelInput.value = '';
       updateCalculation('C');
     }
@@ -57,7 +82,7 @@ let calculation = JSON.parse(localStorage.getItem('calculation')) || '0';
         lastIsOperator = false;
       }
       else if (entry === 'del') {
-        if (lastIsOperator === true) calculation = calculation.slice(0, -3);
+        if (lastIsOperator === true) calculation = calculation.slice(0, -3); //space operator space
         else calculation = calculation.slice(0, -1);
         justEvaluated = false;
         lastIsOperator = false;
@@ -72,10 +97,8 @@ let calculation = JSON.parse(localStorage.getItem('calculation')) || '0';
           if (operators.includes(entry)) {
             if (lastIsOperator === true) {
               calculation = calculation.slice(0, -3);
-              lastIsOperator = true;
             }
             calculation += ' ' + entry + ' ';
-            lastIsOperator = true;
           }
           else {
             calculation += entry;
@@ -94,7 +117,5 @@ let calculation = JSON.parse(localStorage.getItem('calculation')) || '0';
       else {
         document.querySelector('.js-expression').style.color = 'white';
       }
-
-      console.log(calculation);
-      document.querySelector('.js-expression').innerHTML = `${calculation}`;
+      document.querySelector('.js-expression').value = calculation;
     }

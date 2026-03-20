@@ -13,9 +13,9 @@
 
   <div class="expense-manager">
     <div class="calc">
-      <input type="text" class="js-expense-label" placeholder="Expense Label">
+      <input type="text" class="js-expense-label" placeholder="Expense Label" onkeydown="handleKeyDownLabel(event)">
       <button class="js-add-expense" onclick="addExpense()">Add</button>
-      <p class="js-expression"></p>
+      <input class="js-expression" onkeydown="handleKeyDownCalc(event)">
       <div class="calc-buttons">
         <button onclick="
           updateCalculation('+');
@@ -78,7 +78,9 @@
     </div>
 
     <div class="expense-list">
-      <p> Expense List</p>
+      <p style="
+        font-weight: bold;
+      "> EXPENSE LIST</p>
     </div>
 
   </div>
