@@ -25,10 +25,9 @@
   background-color: yellow;
 }
 
-.js-total{
-  font-size: 24px;
-  margin-bottom: 15px;
-  font-family: 'Courier New', Courier, monospace;
+.expense-label{
+  font-weight: bold;
+  color: rgb(255, 230, 198);
 }
 
 .js-expression{
@@ -43,27 +42,6 @@
   display: block;
   background-color: transparent;
   color: white;
-}
-
-.js-add-expense{
-  font-size: 20px;
-  margin-left: 10px;
-  border-radius: 10px;
-  width: 75px;
-  height: 35px;
-  border: 0;
-}
-
-.js-expense-label{
-  font-size: 20px;
-  margin-bottom: 15px;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 10px;
-  width: 260px;
-  padding: 5px;
-
-  display: inline-block;
 }
 
 .clear{
@@ -81,35 +59,4 @@
   font-size: 40px;
   font-family: 'Courier New', Courier, monospace;
   font-style: italic;
-}
-body{
-  background-color: rgb(0, 0, 0);
-  color: whitesmoke;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 0px 15px;
-}
-.expense-manager{
-  display: flex;
-  column-gap: 50px;
-  align-items: first baseline;
-}
-.expense-list{
-  border: none;
-  display: flex; 
-  flex-direction: column;
-  row-gap: 10px;
-  font-size: 34px;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.expense-list p{
-  margin: 0;
-  border-bottom: 1px solid rgba(255, 230, 198, 0.4);
-  padding-top: 10px;
-  padding-bottom: 2px;
-  padding-right: 10px;
-}
-.expense-label{
-  font-weight: bold;
-  color: rgb(255, 230, 198);
 }
