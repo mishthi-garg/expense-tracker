@@ -5,6 +5,12 @@
 }
 
 #expenseChart {
-  width: 520px;
-  height: 340px;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    width: 100%;
+  }
 }

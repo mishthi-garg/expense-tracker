@@ -21,10 +21,10 @@ const categories = [
   'Other'
 ];
 
-categories.forEach(function (category) {
-  target = document.querySelector('select[name="Category"]').innerHTML += `
-  <option value="${category}">${category}</option>
-  `
+const select = document.querySelector('select[name="Category"]');
+
+categories.forEach(category => {
+  select.innerHTML += `<option value="${category}">${category}</option>`;
 });
 
 loadExpenses();
@@ -96,7 +96,8 @@ function loadExpenses() {
       if (confirm('Are you sure you want to reset all expenses? This action cannot be undone.')) {
         expenses = [];
         total = 0;
-        localStorage.clear();
+        localStorage.removeItem('expenses');
+        localStorage.removeItem('total');
         loadExpenses();
       }
     }

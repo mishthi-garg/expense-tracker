@@ -17,8 +17,9 @@ function generateChart() {
   const labels = Object.keys(categoryTotals);
   const data = Object.values(categoryTotals);
 
+  if (labels.length === 0) return;
   const ctx = document.getElementById('expenseChart').getContext('2d');
-
+  
   expenseChart = new Chart(ctx, {
     type: 'pie',
     data:{
@@ -28,6 +29,17 @@ function generateChart() {
         data: data,
         borderWidth: 1
       }]
+    },
+    options: {
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return `Rs. ${context.raw}`;
+            }
+          }
+        }
+      }
     }
   });
 }
