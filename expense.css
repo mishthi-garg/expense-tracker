@@ -4,6 +4,10 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+.js-add-expense:hover, .js-delete-expense:hover, .js-reset:hover{
+  background-color: yellow;
+}
+
 select[name="Category"],
 #categories {
   margin-bottom: 15px;
@@ -18,6 +22,15 @@ select[name="Category"],
   border-radius: 10px;
   width: 75px;
   height: 35px;
+  border: 0;
+}
+
+.js-reset{
+  font-size: 17px;
+  border-radius: 10px;
+  width: 220px;
+  height: 45px;
+  margin: 16px 10px;
   border: 0;
 }
 

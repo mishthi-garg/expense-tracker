@@ -21,7 +21,7 @@
   border: 0;
 }
 
-.calc-buttons button:hover, .clear:hover, .js-add-expense:hover, .js-delete-expense:hover{
+.calc-buttons button:hover, .clear:hover{
   background-color: yellow;
 }
 

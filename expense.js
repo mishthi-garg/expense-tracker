@@ -91,3 +91,12 @@ function loadExpenses() {
       labelInput.value = '';
       updateCalculation('C');
     }
+
+    function resetExpenses() {
+      if (confirm('Are you sure you want to reset all expenses? This action cannot be undone.')) {
+        expenses = [];
+        total = 0;
+        localStorage.clear();
+        loadExpenses();
+      }
+    }
