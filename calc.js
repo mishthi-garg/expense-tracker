@@ -7,12 +7,15 @@ function handleKeyDownCalc(event){
       if(event.key === 'Enter'){
 
         if(justEvaluated){
-          addExpense();
           return;
         }
         updateCalculation('=');
       } else{
-        calculation+=event.key;
+        const validKeys = '0123456789+-*/.';
+
+        if (validKeys.includes(event.key)) {
+          updateCalculation(event.key)
+        }
         document.querySelector('.js-expression').style.color = 'white';
       }
     }
@@ -25,7 +28,8 @@ function handleKeyDownCalc(event){
           alert('Invalid calculation format used');
         }
         else {
-          const sum = parseFloat(eval(calculation).toFixed(2));
+          const safeExpression = calculation.replace(/[^0-9+\-*/.() ]/g, '');
+          const sum = parseFloat(eval(safeExpression).toFixed(2));
           
           calculation = sum.toString();
           justEvaluated = true;
@@ -39,8 +43,8 @@ function handleKeyDownCalc(event){
         lastIsOperator = false;
       }
       else if (entry === 'del') {
-        if (lastIsOperator === true) calculation = calculation.slice(0, -3); //space operator space
-        else calculation = calculation.slice(0, -1);
+        if (lastIsOperator === true) calculation = calculation.slice(0, -3) || '0'; //space operator space
+        else calculation = calculation.slice(0, -1) || '0';
         justEvaluated = false;
         lastIsOperator = false;
       }
@@ -56,8 +60,12 @@ function handleKeyDownCalc(event){
               calculation = calculation.slice(0, -3);
             }
             calculation += ' ' + entry + ' ';
+            lastIsOperator = true;
           }
           else {
+            if (entry === '.' && calculation.split(/[\+\-\*\/]/).pop().includes('.')) {
+              return;
+            }
             calculation += entry;
 
             lastIsOperator = false;

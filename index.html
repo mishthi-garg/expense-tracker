@@ -12,94 +12,128 @@
 
 <body>
   <p class="title"> MY MONEY </p>
-
+  <p class="js-total-income"></p>
   <p class="js-total"></p>
+  <p class="js-balance"></p>
 
   <button class="js-reset" onclick="resetExpenses()">Reset Expenses</button>
+  <button class="js-reset chart-analysis-btn" onclick="generateChart()">Chart Analysis</button>
 
   <div class="expense-manager">
-    <div class="calc">
-      <input type="text" class="js-expense-label" placeholder="Expense Label" onkeydown="handleKeyDownLabel(event)">
-      <button class="js-add-expense" onclick="addExpense()">Add</button>
-     
-      <div class="categories">
+    <div class="expense-entry">
+
+      <div class="date-container">
+        <label for="js-expense-date" class="date-label">Date:</label>
+        <input type="date" class="js-expense-date">
+      </div>
+
+      <div class="expense-type">
+        <button onclick="toggleExp()">INCOME</button>
+        <button class="active" onclick="toggleExp()">EXPENSE</button>
+      </div>
+
+      <div class="drop-downs">
+
+        <div class="accounts">
+        <label for="accounts">Account:</label>
+        <select name="Account" id="accounts">
+        </select>
+        </div>
+
+        <div class="categories">
         <label for="categories">Category:</label>
         <select name="Category" id="categories">
         </select>
+        </div>
       </div>
+
       <div>
-        <label for="js-expense-date">Date:</label>
-        <input type="date" class="js-expense-date">
+        <diV>
+          <input type="text" class="js-expense-label" placeholder="Add notes" onkeydown="handleKeyDownLabel(event)">
+        </diV>
+        <div class="add-exp">
+          <button class="js-add-expense" onclick="addExpense()">Add</button>
+          <button class="js-add-expense" onclick="cancelExpense()">Cancel</button>
+        </div>
+      </div>
+
+      <div class="calc">
+        <input class="js-expression" onkeydown="handleKeyDownCalc(event)">
+
+        <div class="calc-buttons">
+          <button onclick="
+            updateCalculation('+');
+            "> + </button>
+          <button onclick="
+            updateCalculation('1');
+            "> 1 </button>
+          <button onclick="
+            updateCalculation('2');
+            "> 2 </button>
+          <button onclick="
+            updateCalculation('3');
+            "> 3 </button>
+
+          <button onclick="
+            updateCalculation('-');
+            "> - </button>
+          <button onclick="
+            updateCalculation('4');
+            "> 4 </button>
+          <button onclick="
+            updateCalculation('5');
+            "> 5 </button>
+          <button onclick="
+            updateCalculation('6');
+            "> 6 </button>
+
+          <button onclick="
+            updateCalculation('*');
+            "> * </button>
+          <button onclick="
+            updateCalculation('7');
+            "> 7 </button>
+          <button onclick="
+            updateCalculation('8');
+            "> 8 </button>
+          <button onclick="
+            updateCalculation('9');
+            "> 9 </button>
+
+          <button onclick="
+            updateCalculation('/');
+            "> / </button>
+          <button onclick="
+            updateCalculation('0');
+            "> 0 </button>
+          <button onclick="
+            updateCalculation('.');
+            "> . </button>
+          <button onclick="
+            updateCalculation('=');
+            "> = </button>
+        </div>
+
+        <div>
+          <button class="clear" onclick="
+          updateCalculation('C');
+          "> Clear </button>
+          <button class="clear" onclick="
+            updateCalculation('del');
+            "> Del </button>
+        </div>
+        
       </div>
       
-      <input class="js-expression" onkeydown="handleKeyDownCalc(event)">
-      
-      <div class="calc-buttons">
-        <button onclick="
-          updateCalculation('+');
-          "> + </button>
-        <button onclick="
-          updateCalculation('1');
-          "> 1 </button>
-        <button onclick="
-          updateCalculation('2');
-          "> 2 </button>
-        <button onclick="
-          updateCalculation('3');
-          "> 3 </button>
-
-        <button onclick="
-          updateCalculation('-');
-          "> - </button>
-        <button onclick="
-          updateCalculation('4');
-          "> 4 </button>
-        <button onclick="
-          updateCalculation('5');
-          "> 5 </button>
-        <button onclick="
-          updateCalculation('6');
-          "> 6 </button>
-
-        <button onclick="
-          updateCalculation('*');
-          "> * </button>
-        <button onclick="
-          updateCalculation('7');
-          "> 7 </button>
-        <button onclick="
-          updateCalculation('8');
-          "> 8 </button>
-        <button onclick="
-          updateCalculation('9');
-          "> 9 </button>
-
-        <button onclick="
-          updateCalculation('/');
-          "> / </button>
-        <button onclick="
-          updateCalculation('0');
-          "> 0 </button>
-        <button onclick="
-          updateCalculation('.');
-          "> . </button>
-        <button onclick="
-          updateCalculation('=');
-          "> = </button>
-      </div>
-      <button class="clear" onclick="
-        updateCalculation('C');
-        "> Clear </button>
-      <button class="clear" onclick="
-        updateCalculation('del');
-        "> Del </button>
     </div>
+
     <div class="expense-list">
     </div>
   </div>
 
-  <div class="chart-container">
+  <div id="chart-container" class="chart-container">
     <canvas id="expenseChart"></canvas>
+    <canvas id="incomeChart"></canvas>
   </div>
 
 

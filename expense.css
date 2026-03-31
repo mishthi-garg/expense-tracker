@@ -1,49 +1,60 @@
-.js-total{
+.js-total, .js-total-income, .js-balance{
   font-size: 24px;
-  margin-bottom: 15px;
   font-family: 'Courier New', Courier, monospace;
+}
+.amount-balance{
+  color: yellow;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
 }
 
 .js-add-expense:hover, .js-delete-expense:hover, .js-reset:hover{
-  background-color: #ffd54f;
+  background-color: rgb(255, 230, 198);
   color: black;
 }
 
-select[name="Category"],
-#categories {
-  margin-bottom: 15px;
-  margin-left: 10px;
-  width: 180px;
-  font-size: 20px;
+.expense-entry{
+  width: 350px;
+  border-radius: 10px;
+  display: inline-block;
+  position: sticky;
+  top: 0;
 }
 
-.js-add-expense{
-  font-size: 20px;
+
+#categories, #accounts {
+  margin-bottom: 15px;
   margin-left: 10px;
-  border-radius: 10px;
-  width: 75px;
-  height: 35px;
-  border: 0;
+  width: auto;
+  font-size: 20px;
+}
+.drop-downs{
+  display: flex;
+  column-gap: 20px;
 }
 
 .js-reset{
   font-size: 17px;
   border-radius: 10px;
-  width: 220px;
   height: 45px;
-  margin: 16px 10px;
+  margin-bottom: 50px;
   border: 0;
 }
 
 .js-delete-expense{
-  margin-bottom: 20px;
+  margin: 10px 20px;
   font-size: 17px;
   height: 50px;
 }
 
 .expense-manager{
   display: flex;
-  column-gap: 50px;
+  column-gap: 120px;
   align-items: flex-start;
 }
 
@@ -62,19 +73,47 @@ select[name="Category"],
 
 .js-expense-label{
   font-size: 20px;
-  margin-bottom: 15px;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
-  width: 260px;
+  width: 100%;
   padding: 5px;
 
   display: inline-block;
 }
 .js-expense-date{
-  display: block;
-  width: 260px;
   font-size: 20px;
+}
+.date-label{
+  font-size: 20px;
+  font-weight: bold;
+}
+.date-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expense-type, .add-exp{
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+  column-gap: 70px;
+}
+
+.expense-type button, .js-add-expense{
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 20px;
+  border: 5px solid transparent;
+}
+
+.expense-type button.active {
+  background-color: rgb(255, 230, 198);
+  color: black;
+  border: 3px solid white;
+  box-sizing: border-box;
 }
 
 body{
@@ -87,6 +126,16 @@ body{
 .expense-list p {
   word-break: break-word;
   white-space: normal;
+}
+.expense-label{
+  font-weight: bold;
+  color: rgb(255, 230, 198);
+}
+.amount-EXPENSE{
+  color: rgb(255, 99, 71);
+}
+.amount-INCOME{
+  color: rgb(144, 238, 144);
 }
 
 @media (max-width: 768px) {
