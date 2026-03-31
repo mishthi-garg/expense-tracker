@@ -49,6 +49,7 @@ function loadExpenses() {
         <p class="expense-label">${expenses[i].label}</p>
         <p class="category">${expenses[i].category}</p>
         <p class="amount-${expenses[i].expenseType}"> Rs. ${expenses[i].amount}</p>
+        <p class="account">${expenses[i].account}</p>
         <p>${expenses[i].date}</p>
         <button class="js-delete-expense" onclick="deleteExpense(${i})">Delete</button>`;
       }
@@ -102,6 +103,8 @@ function loadExpenses() {
       const date = dateInput.value || new Date().toLocaleDateString();
       const categorySelect = document.querySelector('select[name="Category"]');
       const category = categorySelect.value;
+      const accountSelect = document.querySelector('select[name="Account"]');
+      const account = accountSelect.value;
       const expenseTypeSelect = document.querySelector('.expense-type');
       const expenseType = expenseTypeSelect.querySelector('button:nth-child(1)').classList.contains('active') ? 'INCOME' : 'EXPENSE';
 
@@ -110,7 +113,8 @@ function loadExpenses() {
         amount: amount,
         date: date,
         category: category,
-        expenseType: expenseType 
+        expenseType: expenseType ,
+        account: account
       };
       if (label === '') {
         alert('Please enter a valid label for the expense.');

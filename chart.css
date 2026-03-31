@@ -1,12 +1,20 @@
 .chart-container {
-  width: 420px;
-  height: 420px;
-  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
 }
 
-#expenseChart {
-  width: 100%;
-  height: auto;
+.chart-box {
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+  height: 600px;
+  width: 600px;
+}
+
+.chart-box canvas {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 @media (max-width: 768px) {

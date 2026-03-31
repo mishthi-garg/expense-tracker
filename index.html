@@ -17,7 +17,7 @@
   <p class="js-balance"></p>
 
   <button class="js-reset" onclick="resetExpenses()">Reset Expenses</button>
-  <button class="js-reset chart-analysis-btn" onclick="generateChart()">Chart Analysis</button>
+  <button class="js-reset chart-analysis-btn" onclick="generateChart()">Update Charts</button>
 
   <div class="expense-manager">
     <div class="expense-entry">
@@ -132,8 +132,20 @@
   </div>
 
   <div id="chart-container" class="chart-container">
-    <canvas id="expenseChart"></canvas>
-    <canvas id="incomeChart"></canvas>
+    <div class="chart-box">
+      <canvas id="expenseChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <canvas id="incomeChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <canvas id="incomeBar"></canvas>
+    </div>
+    <div class="chart-box">
+      <canvas id="expenseBar"></canvas>
+    </div>
+
+    
   </div>
 
 
