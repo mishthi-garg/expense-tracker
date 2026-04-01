@@ -1,0 +1,95 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: #1e1e1e;
+  color: white;
+  padding: 20px;
+  padding: 50px;
+  width: fit-content;
+  margin: 10% auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.non-calc{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: first baseline;
+  padding: 25px;
+}
+
+#categories, #accounts {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  font-size: 28px;
+}
+.drop-down-label{
+  font-size: 27px;
+}#categories, #accounts {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  font-size: 28px;
+}
+.drop-down-label{
+  font-size: 27px;
+}
+
+.js-expense-label{
+  font-size: 28px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+
+  display: inline-block;
+}
+
+.js-expense-date{
+  font-size: 24px;
+  padding: 10px;
+}
+.date-label{
+  font-size: 28px;
+  font-weight: bold;
+}
+.date-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.expense-type, .add-exp{
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+  column-gap: 50px;
+}
+
+.expense-type button, .js-add-expense{
+  border-radius: 10px;
+  font-size: 24px;
+  border: 5px solid transparent;
+  padding: 10px 20px;
+}
+
+.expense-type button.active {
+  background-color: rgb(255, 230, 198);
+  color: black;
+  border: 3px solid white;
+  box-sizing: border-box;
+}

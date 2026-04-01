@@ -67,7 +67,6 @@ function generateChart() {
   const ctxExp = document.getElementById('expenseChart').getContext('2d');
   const ctxInc = document.getElementById('incomeChart').getContext('2d');
   const ctxExpBar = document.getElementById('expenseBar').getContext('2d');
-  const ctxIncBar = document.getElementById('incomeBar').getContext('2d');
 
   
   expenseBar = new Chart(ctxExpBar, {
@@ -77,37 +76,14 @@ function generateChart() {
       datasets: [{
         label: 'Expenses',
         data: dataExpenseBar,
+        backgroundColor: 'rgba(255, 0, 0, 0.25)',
+        borderColor: 'red',
         borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        title: {
-          display: true,
-          text: 'Expenses by Account',
-          color: 'white',
-          font: {
-            size: 16
-          }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-
-  incomeBar = new Chart(ctxIncBar, {
-    type: 'bar',
-    data: {
-      labels: labelsIncomeBar ,
-      datasets: [{
+      },{
         label: 'Income',
         data: dataIncomeBar,
+        backgroundColor: 'rgba(0, 255, 0, 0.25)',
+        borderColor: 'green',
         borderWidth: 1
       }]
     },
@@ -117,16 +93,30 @@ function generateChart() {
       plugins: {
         title: {
           display: true,
-          text: 'Income by Account',
+          text: 'Distribution by Account',
           color: 'white',
           font: {
-            size: 16
+            size: 24
           }
         }
       },
       scales: {
+        x: {
+          ticks: {
+            font: {
+              size: 24
+            },
+            color: 'white'
+          }
+        },
         y: {
-          beginAtZero: true
+          beginAtZero: true,
+          ticks: {
+            font: {
+              size: 24
+            },
+            color: 'white'
+          }
         }
       }
     }
@@ -145,12 +135,21 @@ function generateChart() {
     },
     options: {
       plugins: {
+        legend: {
+          labels: {
+            color: 'white',   
+            font: {
+              size: 24        
+            }
+          }
+        },
         title:{
           display: true,
           text: 'Expense Distribution by Category',
           font:{
-            size: 18
-          }
+            size: 24
+          },
+          color: 'white'
         },
         tooltip: {
           callbacks: {
@@ -175,12 +174,21 @@ function generateChart() {
     },
     options: {
       plugins: {
+        legend: {
+          labels: {
+            color: 'white',   
+            font: {
+              size: 24        
+            }
+          }
+        },
         title:{
           display: true,
           text: 'Income Distribution by Category',
           font:{
-            size: 18
-          }
+            size: 24
+          },
+          color: 'white'
         },
         tooltip: {
           callbacks: {

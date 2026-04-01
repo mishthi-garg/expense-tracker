@@ -13,10 +13,10 @@
 }
 
 .calc-buttons button{
-  height: 45px;
-  width: 60px;
+  height: 85px;
+  width: 120px;
   border-radius: 10px;
-  font-size: 26px;
+  font-size: 42px;
   border: 0;
 }
 
@@ -25,24 +25,25 @@
 }
 
 .js-expression{
-  font-size: 48px;
+  font-size: 64px;
   margin-top: 15px;
   margin-bottom: 15px;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
-  width: 315px;
-  padding: 5px;
+  width: 530px;
+  height: 80px;
+  padding: 15px;
   display: block;
   background-color: transparent;
   color: white;
 }
 
 .clear{
-  font-size: 17px;
+  font-size: 32px;
   border-radius: 10px;
-  width: 75px;
-  height: 45px;
+  height: 85px;
+  width: 120px;
   margin-top: 16px;
   margin-right: 10px;
   border: 0;

@@ -51,6 +51,7 @@ function loadExpenses() {
         <p class="amount-${expenses[i].expenseType}"> Rs. ${expenses[i].amount}</p>
         <p class="account">${expenses[i].account}</p>
         <p>${expenses[i].date}</p>
+        <button class="js-edit-expense" onclick="openEditModal(${i})">Edit</button>
         <button class="js-delete-expense" onclick="deleteExpense(${i})">Delete</button>`;
       }
     document.querySelector('.expense-list').innerHTML = html;
@@ -61,12 +62,6 @@ function loadExpenses() {
     document.querySelector('.js-balance').innerHTML =
       `Balance: <span class="amount-balance">Rs. ${balance}</span>`;
     renderChart();
-    }
-
-    function handleKeyDownLabel(event){
-      if(event.key === 'Enter'){
-        addExpense();
-      }
     }
 
     function deleteExpense(index) {
@@ -100,7 +95,7 @@ function loadExpenses() {
       }
       const amount = Number(document.querySelector('.js-expression').value.trim());
       const dateInput = document.querySelector('.js-expense-date');
-      const date = dateInput.value || new Date().toLocaleDateString();
+      const date = dateInput.value || new Date().toISOString().split('T')[0];
       const categorySelect = document.querySelector('select[name="Category"]');
       const category = categorySelect.value;
       const accountSelect = document.querySelector('select[name="Account"]');
@@ -116,10 +111,10 @@ function loadExpenses() {
         expenseType: expenseType ,
         account: account
       };
-      if (label === '') {
-        alert('Please enter a valid label for the expense.');
-        return;
+      if (entry.label === '') {
+        entry.label = expenseType === 'EXPENSE' ? 'Expense' : 'Income';
       }
+      
       if (isNaN(amount) || amount <= 0) {
         alert('Please enter a valid positive number for the amount.');
         return;
@@ -134,8 +129,7 @@ function loadExpenses() {
       localStorage.setItem('total', JSON.stringify(total));
       localStorage.setItem('totalIncome', JSON.stringify(totalIncome));
       loadExpenses();
-      labelInput.value = '';
-      updateCalculation('C');
+      closeModal();
     }
 
     function resetExpenses() {
@@ -148,10 +142,4 @@ function loadExpenses() {
         localStorage.removeItem('totalIncome');
         loadExpenses();
       }
-    }
-
-    function cancelExpense(){
-      const labelInput = document.querySelector('.js-expense-label');
-      labelInput.value = '';
-      updateCalculation('C');
     }

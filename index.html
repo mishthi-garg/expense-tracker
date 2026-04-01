@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="calc.css">
   <link rel="stylesheet" href="expense.css">
   <link rel="stylesheet" href="chart.css">
+  <link rel="stylesheet" href="modals.css">
 </head>
 
 <body>
@@ -18,43 +19,49 @@
 
   <button class="js-reset" onclick="resetExpenses()">Reset Expenses</button>
   <button class="js-reset chart-analysis-btn" onclick="generateChart()">Update Charts</button>
+  <button class="js-reset" onclick="openAddModal()">New Expense</button>
 
-  <div class="expense-manager">
-    <div class="expense-entry">
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <div class="non-calc">
 
-      <div class="date-container">
-        <label for="js-expense-date" class="date-label">Date:</label>
-        <input type="date" class="js-expense-date">
-      </div>
-
-      <div class="expense-type">
-        <button onclick="toggleExp()">INCOME</button>
-        <button class="active" onclick="toggleExp()">EXPENSE</button>
-      </div>
-
-      <div class="drop-downs">
-
-        <div class="accounts">
-        <label for="accounts">Account:</label>
-        <select name="Account" id="accounts">
-        </select>
+        <div class="date-container">
+          <div>
+            <label for="js-expense-date" class="date-label">Date:</label>
+          </div>
+          
+          <div>
+            <input type="date" class="js-expense-date">
+          </div>
+          
         </div>
 
-        <div class="categories">
-        <label for="categories">Category:</label>
-        <select name="Category" id="categories">
-        </select>
+        <div class="expense-type">
+          <button onclick="toggleExp()">INCOME</button>
+          <button class="active" onclick="toggleExp()">EXPENSE</button>
         </div>
-      </div>
 
-      <div>
-        <diV>
-          <input type="text" class="js-expense-label" placeholder="Add notes" onkeydown="handleKeyDownLabel(event)">
+          <div class="accounts">
+          <label for="accounts" class="drop-down-label">Account:</label>
+          <select name="Account" id="accounts">
+          </select>
+          </div>
+
+          <div class="categories">
+          <label for="categories" class="drop-down-label">Category:</label>
+          <select name="Category" id="categories">
+          </select>
+          </div>
+
+        
+        <diV class="label-container">
+          <input type="text" class="js-expense-label" placeholder="Add label">
         </diV>
         <div class="add-exp">
-          <button class="js-add-expense" onclick="addExpense()">Add</button>
-          <button class="js-add-expense" onclick="cancelExpense()">Cancel</button>
+          <button class="js-add-expense Add-btn" onclick="addExpense()">Add</button>
+          <button class="js-add-expense Cancel-btn" onclick="cancelExpense()">Cancel</button>
         </div>
+        
       </div>
 
       <div class="calc">
@@ -124,24 +131,26 @@
         </div>
         
       </div>
-      
-    </div>
 
-    <div class="expense-list">
     </div>
   </div>
 
+  <div class="expense-list">
+  </div>
+
+  
+
   <div id="chart-container" class="chart-container">
-    <div class="chart-box">
-      <canvas id="expenseChart"></canvas>
+    <div class="pie-charts">
+      <div class="chart-box">
+        <canvas id="expenseChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <canvas id="incomeChart"></canvas>
+      </div>
     </div>
-    <div class="chart-box">
-      <canvas id="incomeChart"></canvas>
-    </div>
-    <div class="chart-box">
-      <canvas id="incomeBar"></canvas>
-    </div>
-    <div class="chart-box">
+
+    <div class="bar-chart">
       <canvas id="expenseBar"></canvas>
     </div>
 
@@ -154,6 +163,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="chart.js"></script>
   <script src="expense.js"></script>
+  <script src="modals.js"></script>
 </body>
 
 </html>

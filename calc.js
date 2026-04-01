@@ -11,11 +11,6 @@ function handleKeyDownCalc(event){
         }
         updateCalculation('=');
       } else{
-        const validKeys = '0123456789+-*/.';
-
-        if (validKeys.includes(event.key)) {
-          updateCalculation(event.key)
-        }
         document.querySelector('.js-expression').style.color = 'white';
       }
     }

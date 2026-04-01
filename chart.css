@@ -1,15 +1,30 @@
 .chart-container {
-  display: grid;
+  display: flex;
   gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
 }
 
 .chart-box {
   background: #111;
   padding: 15px;
   border-radius: 10px;
-  height: 600px;
-  width: 600px;
+  width: 1000px;
+}
+.pie-charts {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+.bar-chart {
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+  height: 1200px;
+  width: 80%;
 }
 
 .chart-box canvas {
