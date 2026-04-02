@@ -41,38 +41,38 @@ loadExpenses();
 function loadExpenses() {
     if (expenses.length === 0) {
       document.querySelector('.expense-list').innerHTML = '<p>No expenses yet</p>';
-      return;
-    }
-    let html = `
-        <div class="header-row">
-        <p class="column-name">LABEL</p>
-        <p class="column-name">CATEGORY</p>
-        <p class="column-name">AMOUNT</p>
-        <p class="column-name">ACCOUNT</p>
-        <p class="column-name">DATE</p>
-        <p></p>
-        <p></p>
-        </div>`;
-    for(let i=expenses.length-1; i>=0; i--){
-        html += `
-        <div class="expense-row">
-        <p class="expense-label">${expenses[i].label}</p>
-        <p class="category">${expenses[i].category}</p>
-        <p class="amount-${expenses[i].expenseType}"> Rs. ${expenses[i].amount}</p>
-        <p class="account">${expenses[i].account}</p>
-        <p>${expenses[i].date}</p>
-        <button class="js-edit-expense" onclick="openEditModal(${i})">Edit</button>
-        <button class="js-delete-expense" onclick="deleteExpense(${i})">Delete</button>
-        </div>`;
-      }
-    document.querySelector('.expense-list').innerHTML = html;
-    document.querySelector('.js-total').innerHTML = `Total Expense: <span class="amount-EXPENSE">Rs. ${total}</span>`;
-    document.querySelector('.js-total-income').innerHTML = `Total Income: <span class="amount-INCOME">Rs. ${totalIncome}</span>`;
+    } else {
+        let html = `
+          <div class="header-row">
+          <p class="column-name">LABEL</p>
+          <p class="column-name">CATEGORY</p>
+          <p class="column-name">AMOUNT</p>
+          <p class="column-name">ACCOUNT</p>
+          <p class="column-name">DATE</p>
+          <p></p>
+          <p></p>
+          </div>`;
+      for(let i=expenses.length-1; i>=0; i--){
+          html += `
+          <div class="expense-row">
+          <p class="expense-label">${expenses[i].label}</p>
+          <p class="category">${expenses[i].category}</p>
+          <p class="amount-${expenses[i].expenseType}"> Rs. ${expenses[i].amount}</p>
+          <p class="account">${expenses[i].account}</p>
+          <p>${expenses[i].date}</p>
+          <button class="js-edit-expense" onclick="openEditModal(${i})">Edit</button>
+          <button class="js-delete-expense" onclick="deleteExpense(${i})">Delete</button>
+          </div>`;
+        }
+      document.querySelector('.expense-list').innerHTML = html;
+      document.querySelector('.js-total').innerHTML = `Total Expense: <span class="amount-EXPENSE">Rs. ${total}</span>`;
+      document.querySelector('.js-total-income').innerHTML = `Total Income: <span class="amount-INCOME">Rs. ${totalIncome}</span>`;
 
-    const balance = totalIncome - total;
-    document.querySelector('.js-balance').innerHTML =
-      `Balance: <span class="amount-balance">Rs. ${balance}</span>`;
-    renderChart();
+      const balance = totalIncome - total;
+      document.querySelector('.js-balance').innerHTML =
+        `Balance: <span class="amount-balance">Rs. ${balance}</span>`;
+      renderChart();
+      }
     }
 
     function deleteExpense(index) {
