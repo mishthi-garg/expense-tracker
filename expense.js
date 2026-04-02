@@ -64,6 +64,7 @@ function loadExpenses() {
           <button class="js-delete-expense" onclick="deleteExpense(${i})">Delete</button>
           </div>`;
         }
+      }
       document.querySelector('.expense-list').innerHTML = html;
       document.querySelector('.js-total').innerHTML = `Total Expense: <span class="amount-EXPENSE">Rs. ${total}</span>`;
       document.querySelector('.js-total-income').innerHTML = `Total Income: <span class="amount-INCOME">Rs. ${totalIncome}</span>`;
@@ -72,7 +73,6 @@ function loadExpenses() {
       document.querySelector('.js-balance').innerHTML =
         `Balance: <span class="amount-balance">Rs. ${balance}</span>`;
       renderChart();
-      }
     }
 
     function deleteExpense(index) {
@@ -86,6 +86,7 @@ function loadExpenses() {
        
       localStorage.setItem('expenses', JSON.stringify(expenses));
       localStorage.setItem('total', JSON.stringify(total));
+      localStorage.setItem('totalIncome', JSON.stringify(totalIncome));
       loadExpenses();
     }
 
