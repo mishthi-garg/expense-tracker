@@ -148,9 +148,9 @@ function loadExpenses() {
         expenses = [];
         total = 0;
         totalIncome = 0;
-        localStorage.removeItem('expenses');
-        localStorage.removeItem('total');
-        localStorage.removeItem('totalIncome');
+        localStorage.setItem('expenses', JSON.stringify(expenses));
+        localStorage.setItem('total', JSON.stringify(total));
+        localStorage.setItem('totalIncome', JSON.stringify(totalIncome));
         loadExpenses();
       }
     }
