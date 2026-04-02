@@ -43,7 +43,7 @@
 
 .expense-row, .header-row {
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr 1fr; 
+  grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr 1fr; 
   gap: 10px;
   align-items: center;
   padding: 6px 8px;
