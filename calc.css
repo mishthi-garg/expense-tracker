@@ -3,8 +3,8 @@
 .calc-buttons{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 25px;
-  row-gap: 25px;
+  column-gap: 15px;
+  row-gap: 15px;
 }
 .calc{
   display: flex;
@@ -13,26 +13,29 @@
 }
 
 .calc-buttons button{
-  height: 85px;
-  width: 120px;
+  height: 45px;
+  width: 50px;
   border-radius: 10px;
-  font-size: 42px;
+  font-size: 16px;
   border: 0;
+  background-color: black;
+  color: white;
 }
 
 .calc-buttons button:hover, .clear:hover{
   background-color: yellow;
+  color: black;
 }
 
 .js-expression{
-  font-size: 64px;
+  font-size: 44px;
   margin-top: 15px;
   margin-bottom: 15px;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
-  width: 530px;
-  height: 80px;
+  width: 215px;
+  height: 30px;
   padding: 15px;
   display: block;
   background-color: transparent;
@@ -40,12 +43,14 @@
 }
 
 .clear{
-  font-size: 32px;
+  font-size: 16px;
   border-radius: 10px;
-  height: 85px;
-  width: 120px;
+  height: 45px;
+  width: 80px;
   margin-top: 16px;
   margin-right: 10px;
   border: 0;
+  background-color: black;
+  color: white;
 }
 

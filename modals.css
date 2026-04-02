@@ -12,42 +12,34 @@
   background: #1e1e1e;
   color: white;
   padding: 20px;
-  padding: 50px;
+  padding: 20px;
   width: fit-content;
   margin: 10% auto;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 20px;
 }
 
 .non-calc{
   display: flex;
   flex-direction: column;
-  gap: 20px;
   justify-content: space-between;
   align-items: first baseline;
-  padding: 25px;
+  padding: 15px;
 }
 
 #categories, #accounts {
   margin-bottom: 15px;
   margin-left: 10px;
-  font-size: 28px;
+  font-size: 16px;
 }
 .drop-down-label{
-  font-size: 27px;
-}#categories, #accounts {
-  margin-bottom: 15px;
-  margin-left: 10px;
-  font-size: 28px;
-}
-.drop-down-label{
-  font-size: 27px;
+  font-size: 17px;
 }
 
 .js-expense-label{
-  font-size: 28px;
+  font-size: 18px;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
@@ -59,11 +51,11 @@
 }
 
 .js-expense-date{
-  font-size: 24px;
+  font-size: 14px;
   padding: 10px;
 }
 .date-label{
-  font-size: 28px;
+  font-size: 18px;
   font-weight: bold;
 }
 .date-container{
@@ -82,7 +74,7 @@
 
 .expense-type button, .js-add-expense{
   border-radius: 10px;
-  font-size: 24px;
+  font-size: 14px;
   border: 5px solid transparent;
   padding: 10px 20px;
 }
