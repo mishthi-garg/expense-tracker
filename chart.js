@@ -134,6 +134,8 @@ function generateChart() {
       }]
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: {
           labels: {
@@ -173,6 +175,8 @@ function generateChart() {
       }]
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: {
           labels: {
