@@ -64,8 +64,9 @@ function loadExpenses() {
           <button class="js-delete-expense" onclick="deleteExpense(${i})">Delete</button>
           </div>`;
         }
+        document.querySelector('.expense-list').innerHTML = html;
       }
-      document.querySelector('.expense-list').innerHTML = html;
+      
       document.querySelector('.js-total').innerHTML = `Total Expense: <span class="amount-EXPENSE">Rs. ${total}</span>`;
       document.querySelector('.js-total-income').innerHTML = `Total Income: <span class="amount-INCOME">Rs. ${totalIncome}</span>`;
 
