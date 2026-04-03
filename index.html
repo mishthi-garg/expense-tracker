@@ -135,6 +135,21 @@
     </div>
   </div>
 
+  <label for="js-filter-type" class="drop-down-label">Filter by Type</label>
+  <select id="js-filter-type">
+    <option value="all">All</option>
+    <option value="EXPENSE">Expense</option>
+    <option value="INCOME">Income</option>
+  </select>
+  <label for="js-filter-category" class="drop-down-label">Filter by Category</label>
+  <select id="js-filter-category">
+    <option value="all">All</option>
+  </select>
+  <label for="js-filter-account" class="drop-down-label">Filter by Account</label>
+  <select id="js-filter-account">
+    <option value="all">All</option>
+  </select>
+
   <div class="expense-list">
   </div>
 
@@ -162,8 +177,10 @@
   <script src="calc.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="chart.js"></script>
+  <script src="filters.js"></script>
   <script src="expense.js"></script>
   <script src="modals.js"></script>
+  
 </body>
 
 </html>

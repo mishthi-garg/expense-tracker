@@ -2,28 +2,6 @@ let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
 let total = JSON.parse(localStorage.getItem('total')) || 0;
 let totalIncome = JSON.parse(localStorage.getItem('totalIncome')) || 0;
 
-
-const categories = [
-  'Beauty',
-  'Car',
-  'Education',
-  'Electronics',
-  'Entertainment',
-  'Food',
-  'Home',
-  'Health',
-  'Insurance',
-  'Laundry',
-  'Shopping',
-  'Social',
-  'Sports',
-  'Tax',
-  'Travel',
-  'Other'
-];
-
-const accounts = ['Cash', 'Bank Transfer', 'Credit Card', 'Debit Card', 'Mobile Payment', 'Other'];
-
 const selectCat = document.querySelector('select[name="Category"]');
 
 categories.forEach(category => {
@@ -39,8 +17,11 @@ accounts.forEach(account => {
 loadExpenses();
 
 function loadExpenses() {
-    if (expenses.length === 0) {
-      document.querySelector('.expense-list').innerHTML = '<p>No expenses yet</p>';
+    console.log('loading expenses');
+    const filtered = getFilteredData();
+    console.log(filtered);
+    if (filtered.length === 0) {
+      document.querySelector('.expense-list').innerHTML = '<p>No entries</p>';
     } else {
         let html = `
           <div class="header-row">
@@ -52,16 +33,16 @@ function loadExpenses() {
           <p></p>
           <p></p>
           </div>`;
-      for(let i=expenses.length-1; i>=0; i--){
+      for(let i=filtered.length-1; i>=0; i--){
           html += `
           <div class="expense-row">
-          <p class="expense-label">${expenses[i].label}</p>
-          <p class="category">${expenses[i].category}</p>
-          <p class="amount-${expenses[i].expenseType}"> Rs. ${expenses[i].amount}</p>
-          <p class="account">${expenses[i].account}</p>
-          <p>${expenses[i].date}</p>
-          <button class="js-edit-expense" onclick="openEditModal(${i})">Edit</button>
-          <button class="js-delete-expense" onclick="deleteExpense(${i})">Delete</button>
+          <p class="expense-label">${filtered[i].label}</p>
+          <p class="category">${filtered[i].category}</p>
+          <p class="amount-${filtered[i].expenseType}"> Rs. ${filtered[i].amount}</p>
+          <p class="account">${filtered[i].account}</p>
+          <p>${filtered[i].date}</p>
+          <button class="js-edit-expense" onclick="openEditModal(${filtered[i].originalIndex})">Edit</button>
+          <button class="js-delete-expense" onclick="deleteExpense(${filtered[i].originalIndex})">Delete</button>
           </div>`;
         }
         document.querySelector('.expense-list').innerHTML = html;
